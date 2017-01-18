@@ -13,7 +13,7 @@ First, install the pocket api with npm.
 
 Please review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow.
 
-```
+```javascript
 var pocket = require('pocket-api')
 
 var consumer_key = 'your consumer_key';
@@ -29,7 +29,7 @@ pocket.getRequestToken(err, params, function(err, request_token){
 });
 
 pocket.generateURL(err, params, function(err, url){
-	//send user to this url
+	// send user to this url
 })
 
 pocket.getAccessToken(err, params, function(data){
@@ -39,14 +39,14 @@ pocket.getAccessToken(err, params, function(data){
 });
 
 pocket.getArticles(err, params, function(err, data){
-	//returns articles
+	// returns articles
 });
 
-add to params: {url, tweet_id, tags}
+// add to params: {url, tweet_id, tags}
 pocket.addArticles(err, params, function(err, data){
 });
 
-add to params: {actions}
+// add to params: {actions}
 pocket.modifyArticles(err, params, function(err, data) {
 });
 

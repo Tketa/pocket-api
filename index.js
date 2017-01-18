@@ -57,10 +57,13 @@ pocket.getArticles = function(err, params, callback){
 }
 
 pocket.addArticles = function(err, params, callback){
+	var body = `url=${params.url}&consumer_key=${params.consumer_key}&access_token=${params.access_token}`
+	body += (params.tweet_id) ? `&tweet_id=${params.tweet_id}` : '';
+	body += (params.tags) ? `&tags=${params.tags}` : '';
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.add,
-		body: "url=" + params.url + "&consumer_key=" + params.consumer_key + "&access_token=" + params.access_token + "&tweet_id=" + params.tweet_id + ((params.tags) ?("&tags=" + params.tags):'')
+		body: body,
 	}
 	request.post(options, function (err, response, body) {
 		completePost(err, response, body, callback);
